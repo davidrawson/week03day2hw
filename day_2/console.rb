@@ -24,4 +24,6 @@ bounty_hunter1.name = ("Trevor Fett")
 
 bounty_hunter1.update
 
+p bounty_hunter2.find
+
 bounty_hunter1.delete

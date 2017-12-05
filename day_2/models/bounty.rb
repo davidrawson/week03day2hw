@@ -50,4 +50,15 @@ class Bounty
     db.exec_prepared("delete", values)
     db.close()
   end
+
+  def find
+    db = PG.connect({dbname: 'bounty_hunters', host: 'localhost'})
+    sql = "SELECT * FROM bounty_hunters WHERE id=$1"
+    values = [@id]
+    db.prepare("find", sql)
+    hunters = db.exec_prepared("find", values)
+    db.close()
+    return hunters.map {|hunter| Bounty.new(hunter)}
+  end
+
 end
